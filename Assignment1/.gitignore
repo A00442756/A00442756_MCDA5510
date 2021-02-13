@@ -1,0 +1,17 @@
+# Ignore Mac system files
+.DS_store
+
+# Ignore folders
+bin
+obj
+.vs
+
+# Ignore all text files
+*.txt
+*.config
+
+# Ignore files related to API keys
+.env
+
+# Ignore SASS config files
+.sass-cache
