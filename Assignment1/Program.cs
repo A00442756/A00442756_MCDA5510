@@ -12,6 +12,8 @@ namespace Assignment1
         //private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public static void Main(string[] args)
         {
+            log4net.Config.XmlConfigurator.Configure();
+            log.Info("Info message");
             var watch = System.Diagnostics.Stopwatch.StartNew(); //begin timer
             
             DirWalker fw = new DirWalker();
