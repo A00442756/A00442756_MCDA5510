@@ -54,13 +54,13 @@ namespace Assignment1
                 if (Directory.Exists(dirpath))
                 {
                     walk(dirpath);
-                    log.Info("Directory: " + dirpath);
+                    //log.Info("Directory: " + dirpath);
                 }
             }
             string[] fileList = Directory.GetFiles(path);
             foreach (string filepath in fileList)
             {
-                log.Info("File: " + filepath);
+                //log.Info("File: " + filepath);
                 using (TextFieldParser parser = new TextFieldParser(filepath))
                 {
                     parser.TextFieldType = FieldType.Delimited;
@@ -91,9 +91,12 @@ namespace Assignment1
                             rowCount++;
                         }
 
+                        var lastModified = File.GetLastWriteTime(filepath);
+                        completeRecordsList.Add(lastModified.ToString("yyyy/MM/dd"));
+
                         string[] completeRecordsArray = completeRecordsList.ToArray();
                         Exceptions ex = new Exceptions();
-                        if (completeRecordsArray.Length == 10)
+                        if (completeRecordsArray.Length >= 10)
                         {
                             var sw = ex.OpenStream(@".\Output\completeRecords.csv");
 
